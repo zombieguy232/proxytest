@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Cloudflare URL Loader</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+    header {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      background: #111;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 52px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <input id="url" placeholder="https://example.com" />
+    <button onclick="go()">Go</button>
+  </header>
+
+  <iframe id="viewer"></iframe>
+
+<script>
+  function go() {
+    const url = document.getElementById("url").value.trim();
+    if (!url) return;
+
+    document.getElementById("viewer").src =
+      "/mamacoco?=" + encodeURIComponent(url);
+  }
+</script>
+</body>
+</html>
 
